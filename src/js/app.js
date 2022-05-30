@@ -7,6 +7,12 @@ $(document).ready(function(){
 
 function secciones(){
 
+    $("#idBtnComenzar").on("click", function(){
+        $("#idLanding").hide();
+        $("#idSeccion01").show();
+    });
+
+
     /*Lading*/
     $("#idSecLading").on("click", function(){
         $("#idLanding").show();
