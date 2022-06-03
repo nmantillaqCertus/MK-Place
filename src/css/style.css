@@ -1,0 +1,12 @@
+.nCart {
+  background-color: red;
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 91%;
+}
+
+
+.imgCart{
+    width: 35px;
+}

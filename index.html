@@ -18,7 +18,14 @@
                 <a class="navbar-brand" id="idSecLading" style="cursor: pointer;">MK-Place</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
+                  <div  style="    float: right;
+                  margin-left: 15px;">
+                  <img class="imgCart" src="./src/img/carrito/shopping-bag.png"/>
+                  <span class="nCart">2</span>
+                  </div>
                 </button>
+
+                
               
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
@@ -29,6 +36,10 @@
                   <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <div style="margin-left: 10px;">
+                    <img class="imgCart" src="./src/img/carrito/shopping-bag.png"/>  
+                    <span id="idNroCart" class="nCart">0</span>
+                  </div>
                   </form>
                 </div>
               </nav>
@@ -39,7 +50,7 @@
         <div id="idLanding" class="row"> 
           <div class="row">
             <div class="col pl-3 pt-2 pr-3">
-              <img src="./src/img/imgLanding/4706614.jpg" style="width: 400px; height: auto;" >
+              <img src="https://i.pravatar.cc/450?u=4" style="width: 400px; height: auto;" >
             </div>   
             <div class="col pl-3 pt-2 pr-3 text-center">
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo maxime repellat corrupti nam. Tenetur quia ratione autem qui quos. Blanditiis quam tenetur non, impedit asperiores quia beatae reiciendis quis veniam?</p>
@@ -61,9 +72,9 @@
               <div class="col-4">                
               </div>
             </div>
-            <div class="row">
+            <div class="row" id="idContentProduct">
               <!--Producto-->
-              <div class="card m-3" style="max-width: 540px;">
+              <div class="card m-3" style="max-width: 450px;">
                 <div class="row no-gutters">
                   <div class="col-md-4">
                     <img src="..." alt="Producto Uno">
@@ -82,26 +93,7 @@
               </div>
               <!--Fin Producto-->
 
-              <!--Producto-->
-              <div class="card m-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <img src="..." alt="Producto Dos">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Producto Dos</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text">
-                        <small class="text-muted">Calificación</small>
-                        <span class="btn btn-sm btn-success" style="float: right !important;height: 24px!important;padding-top: 0px!important;">Agregar al Carrito</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--Fin Producto-->
-              
+           
             </div>
             <div class="row">
               <button>Ver Más</button>
@@ -127,6 +119,7 @@
     <script src="./src/lib/popper.min.js"></script>
     <script src="./src/lib/bootstrap.min.js"></script>
     <script src="./src/js/app.js"></script>
+    <script src="./src/js/productos.js"></script>
 
 </body>
 </html>
