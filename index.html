@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./src/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="./src/lib/datatable/jquery.dataTables.min.css">
     <link rel="stylesheet" href="./src/css/style.css">
 
     <title>MK-Place</title>
@@ -37,7 +38,7 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     <div style="margin-left: 10px;">
-                    <img class="imgCart" src="./src/img/carrito/shopping-bag.png"/>  
+                    <img id="idLinkCart" class="imgCart" src="./src/img/carrito/shopping-bag.png"/>  
                     <span id="idNroCart" class="nCart">0</span>
                   </div>
                   </form>
@@ -103,8 +104,46 @@
 
 
         <!--Sección Dos-->
-        <div id="idSeccion02" class="row" style="display: none;">
-            <p>Sección Dos</p>
+        <div id="idSeccion02" class="row" style="display: none;"> 
+          <div class="col">
+            <h5 class="text-center">Carrito de Compras</h5>
+            <div class="row">
+              <p>Iniciar Sesión</p>
+            </div>
+            <div class="row">
+              <button class="btn btn-sm btn-info">Seguir Comprando</button>
+            </div> 
+          </div> 
+
+          <hr>
+          <div class="col">
+            <table id="idTablaProducto" class="table">
+              <thead>
+                <tr>
+                  <th>Imagen</th>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Precio</th>
+                  <th>Stock</th>
+                  <th>Categoria</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <br>
+            <br>
+            <div>
+              Precio <span id="idPrecioTotal">0</span>
+            </div>
+            <br>
+            <br>
+            <div>
+              <label for="idDescuento">¿Tienes Algún Cupón de Descuento?</label>
+             <input id="idDescuento" type="text">
+             <button class="btn btn-sm btn-success" onclick="fnAplicarCupon()">Aplicar Cupon</button>
+            </div>
+          </div>
         </div>
         <!--Fin Sección Dos-->
 
@@ -118,6 +157,9 @@
     <script src="./src/lib/jquery-3.6.0.min.js"></script>
     <script src="./src/lib/popper.min.js"></script>
     <script src="./src/lib/bootstrap.min.js"></script>
+
+    <script src="./src/lib/datatable/jquery.dataTables.min.js"></script>
+
     <script src="./src/js/app.js"></script>
     <script src="./src/js/productos.js"></script>
 
