@@ -99,8 +99,8 @@ let categorias = [
 let cupones	= [
   { ID_Cupon: 1, CodigoCupon: "CompuGamer", Dscto:null, Tipo:"Por Producto"},
   { ID_Cupon: 2, CodigoCupon: "ArribaPeru" , Dscto: 15, Tipo:"Por Producto" },
-  { ID_Cupon: 3, CodigoCupon: "DiaPadre", Dscto: null, Tipo:"Por Producto"},
-  { ID_Cupon: 4, CodigoCupon: "DiaPadre", Dscto: 25, Tipo:"Total"}
+  { ID_Cupon: 3, CodigoCupon: "DiaPadreUno", Dscto: null, Tipo:"Por Producto"},
+  { ID_Cupon: 4, CodigoCupon: "DiaPadreDos", Dscto: 25, Tipo:"Total"}
 ];
 
 let clasificacion = [];

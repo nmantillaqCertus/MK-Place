@@ -103,6 +103,8 @@ function fnAplicarCupon() {
     descuento != "" &&
     descuento != undefined
   ) {
+    debugger
+    CuponAplicado = null;
     let cuponEncontrado = cupones.find((c) => c.CodigoCupon === descuento);
     CuponAplicado = cuponEncontrado;
     fnPoblarTabla();
@@ -157,6 +159,7 @@ debugger
   }
 
   if (CuponAplicado != null) {
+    debugger
     switch (true) {
       case CuponAplicado.Tipo == "Total":
         precioTotal = precioTotal - (precioTotal*CuponAplicado.Dscto)/100;
