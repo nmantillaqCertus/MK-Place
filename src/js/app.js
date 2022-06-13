@@ -5,10 +5,10 @@
 */
 
 $.when($.ready).then(function () {
-  debugger
+  debugger;
   secciones();
   fnCargarProductos();
-  tablaProducto =  $("#idTablaProducto").DataTable();
+  tablaProducto = $("#idTablaProducto").DataTable();
 });
 
 //idContentProduct
@@ -87,7 +87,6 @@ function fnAdminCart() {
     $("#idSeccion02").show();
 
     fnPoblarTabla();
-
   } else {
     $("#idLanding").hide();
     $("#idSeccion01").show();
@@ -95,32 +94,75 @@ function fnAdminCart() {
   }
 }
 
-function fnAplicarCupon(){
-  
+let CuponAplicado = null;
+function fnAplicarCupon() {
+  let descuento = $("#idDescuento").val().trim();
+  if (
+    descuento.length > 0 &&
+    descuento != null &&
+    descuento != "" &&
+    descuento != undefined
+  ) {
+    let cuponEncontrado = cupones.find((c) => c.CodigoCupon === descuento);
+    CuponAplicado = cuponEncontrado;
+    fnPoblarTabla();
+  }
 }
 
-
-function fnPoblarTabla(){  
-
+function fnPoblarTabla() {
   tablaProducto.clear();
-  let precioTotal = 0; 
-  for(let i=0; i<productosCart.length; i++){
-    debugger
-    let productoEncontrado = productos.find(prod => prod.ID_Producto == productosCart[i].idProducto); 
-    let catProducto = categorias.find(c => c.ID_Categoria == productoEncontrado.ID_Categoria).NombreCategoria;
+  let precioTotal = 0;
+debugger
+  for (let i = 0; i < productosCart.length; i++) {
+    let productoEncontrado = productos.find(
+      (prod) => prod.ID_Producto == productosCart[i].idProducto
+    );
+    let categoriaProducto = categorias.find(
+      (c) => c.ID_Categoria == productoEncontrado.ID_Categoria
+    ).NombreCategoria;
 
-    precioTotal = precioTotal + productoEncontrado.PrecioProducto;
+    let precioPorProducto = 0;
+    if (CuponAplicado != null) {
+      switch (true) {
+        case CuponAplicado.Tipo == "Por Producto":
+          if (productoEncontrado.ID_Cupon != null) {
+            let cuponProducto = cupones.find(
+              (x) => (x.ID_Cupon == productoEncontrado.ID_Cupon)
+            );
+            precioPorProducto =
+              productoEncontrado.PrecioProducto -
+              (productoEncontrado.PrecioProducto * cuponProducto.Dscto) / 100;
+          } else {
+            precioPorProducto = productoEncontrado.PrecioProducto;
+          }
+          break;
+      }
+    } else {
+      precioPorProducto = productoEncontrado.PrecioProducto;
+    }
+    precioTotal += precioPorProducto;
 
-    tablaProducto.row.add([
-      "<span><img src='"+productoEncontrado.imagenProducto+"' style='width:30px'/></span>",
-      "<span>"+productoEncontrado.NombreProducto+"</span>",
-      "<span>"+productoEncontrado.DescripcionProducto+"</span>",
-      "<span>"+productoEncontrado.PrecioProducto+"</span>",
-      "<span>"+productoEncontrado.sctokProducto+"</span>",
-      "<span>"+catProducto+"</span>"
-    ]).draw();
+    tablaProducto.row
+      .add([
+        "<span><img src='" +
+          productoEncontrado.imagenProducto +
+          "' style='width:30px'/></span>",
+        "<span>" + productoEncontrado.NombreProducto + "</span>",
+        "<span>" + productoEncontrado.DescripcionProducto + "</span>",
+        "<span>" + precioPorProducto + "</span>",
+        "<span>" + productoEncontrado.sctokProducto + "</span>",
+        "<span>" + categoriaProducto + "</span>",
+      ])
+      .draw();
   }
-  
-  
+
+  if (CuponAplicado != null) {
+    switch (true) {
+      case CuponAplicado.Tipo == "Total":
+        precioTotal = precioTotal - (precioTotal*CuponAplicado.Dscto)/100;
+        break;
+    }
+  }
+
   $("#idPrecioTotal").text(precioTotal);
 }

@@ -11,6 +11,7 @@ let productos = [
     ID_Categoria: 2,
     estado: false,
     ID_TipoEnvio: 1,
+    ID_Cupon:null
   },
   {
     ID_Producto: 2,
@@ -24,6 +25,7 @@ let productos = [
     ID_Categoria: 1,
     estado: true,
     ID_TipoEnvio: 1,
+    ID_Cupon:null
   },
   {
     ID_Producto: 3,
@@ -37,6 +39,7 @@ let productos = [
     ID_Categoria: 2,
     estado: true,
     ID_TipoEnvio: 1,
+    ID_Cupon:null
   },
   {
     ID_Producto: 4,
@@ -50,6 +53,7 @@ let productos = [
     ID_Categoria: 1,
     estado: true,
     ID_TipoEnvio: 1,
+    ID_Cupon:null
   },
   {
     ID_Producto: 5,
@@ -63,6 +67,7 @@ let productos = [
     ID_Categoria: 1,
     estado: true,
     ID_TipoEnvio: 1,
+    ID_Cupon:null
   },
   {
     ID_Producto: 6,
@@ -76,6 +81,7 @@ let productos = [
     ID_Categoria: 1,
     estado: true,
     ID_TipoEnvio: 1,
+    ID_Cupon:2
   },
 ];
 
@@ -89,5 +95,13 @@ let categorias = [
   { ID_Categoria: 5, NombreCategoria: "Otro Basico" },
   { ID_Categoria: 6, NombreCategoria: "Otro Gamer" },
 ];
+
+let cupones	= [
+  { ID_Cupon: 1, CodigoCupon: "CompuGamer", Dscto:null, Tipo:"Por Producto"},
+  { ID_Cupon: 2, CodigoCupon: "ArribaPeru" , Dscto: 15, Tipo:"Por Producto" },
+  { ID_Cupon: 3, CodigoCupon: "DiaPadre", Dscto: null, Tipo:"Por Producto"},
+  { ID_Cupon: 4, CodigoCupon: "DiaPadre", Dscto: 25, Tipo:"Total"}
+];
+
 let clasificacion = [];
 let tipoEnvio = [];
