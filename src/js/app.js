@@ -5,7 +5,6 @@
 */
 
 $.when($.ready).then(function () {
-  debugger;
   secciones();
   fnCargarProductos();
   tablaProducto = $("#idTablaProducto").DataTable();
@@ -85,7 +84,7 @@ function fnAdminCart() {
     $("#idLanding").hide();
     $("#idSeccion01").hide();
     $("#idSeccion02").show();
-
+    fnCrearSlide();
     fnPoblarTabla();
   } else {
     $("#idLanding").hide();
@@ -103,7 +102,6 @@ function fnAplicarCupon() {
     descuento != "" &&
     descuento != undefined
   ) {
-    debugger
     CuponAplicado = null;
     let cuponEncontrado = cupones.find((c) => c.CodigoCupon === descuento);
     CuponAplicado = cuponEncontrado;
@@ -114,7 +112,6 @@ function fnAplicarCupon() {
 function fnPoblarTabla() {
   tablaProducto.clear();
   let precioTotal = 0;
-debugger
   for (let i = 0; i < productosCart.length; i++) {
     let productoEncontrado = productos.find(
       (prod) => prod.ID_Producto == productosCart[i].idProducto
@@ -129,7 +126,7 @@ debugger
         case CuponAplicado.Tipo == "Por Producto":
           if (productoEncontrado.ID_Cupon != null) {
             let cuponProducto = cupones.find(
-              (x) => (x.ID_Cupon == productoEncontrado.ID_Cupon)
+              (x) => x.ID_Cupon == productoEncontrado.ID_Cupon
             );
             precioPorProducto =
               productoEncontrado.PrecioProducto -
@@ -137,6 +134,9 @@ debugger
           } else {
             precioPorProducto = productoEncontrado.PrecioProducto;
           }
+          break;
+        case CuponAplicado.Tipo == "Total":
+          precioPorProducto = productoEncontrado.PrecioProducto;
           break;
       }
     } else {
@@ -159,13 +159,51 @@ debugger
   }
 
   if (CuponAplicado != null) {
-    debugger
+    debugger;
     switch (true) {
       case CuponAplicado.Tipo == "Total":
-        precioTotal = precioTotal - (precioTotal*CuponAplicado.Dscto)/100;
+        precioTotal = precioTotal - (precioTotal * CuponAplicado.Dscto) / 100;
         break;
     }
   }
 
   $("#idPrecioTotal").text(precioTotal);
+}
+
+function fnCrearSlide() {
+  if (calificacion.length != 0) {
+    let NuevaCalificacion = calificacion.filter((x) => x.Puntaje > 4);
+    let prodAux = [];
+    for (let i = 0; i < NuevaCalificacion.length; i++) {
+      let productoEncontrado = productos.find(
+        (p) => p.ID_Producto == NuevaCalificacion[i].ID_Producto
+      );
+      if (
+        prodAux.find((x) => x.ID_Producto == productoEncontrado.ID_Producto) ==
+        null
+      ) {
+        prodAux.push(productoEncontrado);
+      }
+    }
+
+    //Creas el slide
+    if (prodAux.length != 0) {
+      $("#idSlide").empty();
+      let claseSlide = "carousel-item active";
+      for (let i = 0; i < prodAux.length; i++) {
+        if (i != 0) {
+          claseSlide = "carousel-item";
+        }
+        $("#idSlide").append(`
+            <div class="${claseSlide}">
+              <img src="${prodAux[i].imagenProducto}" class="d-block w-100" alt="${prodAux[i].NombreProducto}">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>${prodAux[i].NombreProducto}</h5>
+                <p>${prodAux[i].DescripcionProducto}</p>
+              </div>
+            </div>
+         `);
+      }
+    }
+  }
 }

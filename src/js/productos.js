@@ -7,11 +7,10 @@ let productos = [
     sctokProducto: 6,
     imagenProducto: "https://i.pravatar.cc/200?u=1",
     descuentoProducto: 12.5,
-    ID_Calificacion: 1,
     ID_Categoria: 2,
     estado: false,
     ID_TipoEnvio: 1,
-    ID_Cupon:null
+    ID_Cupon: null,
   },
   {
     ID_Producto: 2,
@@ -21,11 +20,10 @@ let productos = [
     sctokProducto: 20,
     imagenProducto: "https://i.pravatar.cc/200?u=2",
     descuentoProducto: 12.5,
-    ID_Calificacion: 1,
     ID_Categoria: 1,
     estado: true,
     ID_TipoEnvio: 1,
-    ID_Cupon:null
+    ID_Cupon: null,
   },
   {
     ID_Producto: 3,
@@ -35,11 +33,10 @@ let productos = [
     sctokProducto: 5,
     imagenProducto: "https://i.pravatar.cc/200?u=3",
     descuentoProducto: 12.5,
-    ID_Calificacion: 1,
     ID_Categoria: 2,
     estado: true,
     ID_TipoEnvio: 1,
-    ID_Cupon:null
+    ID_Cupon: null,
   },
   {
     ID_Producto: 4,
@@ -49,11 +46,10 @@ let productos = [
     sctokProducto: 10,
     imagenProducto: "https://i.pravatar.cc/200?u=4",
     descuentoProducto: 12.5,
-    ID_Calificacion: 1,
     ID_Categoria: 1,
     estado: true,
     ID_TipoEnvio: 1,
-    ID_Cupon:null
+    ID_Cupon: null,
   },
   {
     ID_Producto: 5,
@@ -63,11 +59,10 @@ let productos = [
     sctokProducto: 20,
     imagenProducto: "https://i.pravatar.cc/200?u=5",
     descuentoProducto: 12.5,
-    ID_Calificacion: 1,
     ID_Categoria: 1,
     estado: true,
     ID_TipoEnvio: 1,
-    ID_Cupon:null
+    ID_Cupon: null,
   },
   {
     ID_Producto: 6,
@@ -77,11 +72,10 @@ let productos = [
     sctokProducto: 100,
     imagenProducto: "https://i.pravatar.cc/200?u=6",
     descuentoProducto: 12.5,
-    ID_Calificacion: 1,
     ID_Categoria: 1,
     estado: true,
     ID_TipoEnvio: 1,
-    ID_Cupon:2
+    ID_Cupon: 2,
   },
 ];
 
@@ -96,12 +90,61 @@ let categorias = [
   { ID_Categoria: 6, NombreCategoria: "Otro Gamer" },
 ];
 
-let cupones	= [
-  { ID_Cupon: 1, CodigoCupon: "CompuGamer", Dscto:null, Tipo:"Por Producto"},
-  { ID_Cupon: 2, CodigoCupon: "ArribaPeru" , Dscto: 15, Tipo:"Por Producto" },
-  { ID_Cupon: 3, CodigoCupon: "DiaPadreUno", Dscto: null, Tipo:"Por Producto"},
-  { ID_Cupon: 4, CodigoCupon: "DiaPadreDos", Dscto: 25, Tipo:"Total"}
+let cupones = [
+  { ID_Cupon: 1, CodigoCupon: "CompuGamer", Dscto: null, Tipo: "Por Producto" },
+  { ID_Cupon: 2, CodigoCupon: "ArribaPeru", Dscto: 15, Tipo: "Por Producto" },
+  {
+    ID_Cupon: 3,
+    CodigoCupon: "DiaPadreUno",
+    Dscto: null,
+    Tipo: "Por Producto",
+  },
+  { ID_Cupon: 4, CodigoCupon: "DiaPadreDos", Dscto: 25, Tipo: "Total" },
 ];
 
-let clasificacion = [];
+let calificacion = [
+  {
+    ID_Calificacion: 1,
+    Comentario: "Ese teclado es genial",
+    ID_Producto: 1,
+    Puntaje: 5
+  },
+  {
+    ID_Calificacion: 2,
+    Comentario: "Ese teclado es bueno",
+    ID_Producto: 1,
+    Puntaje: 4
+  },
+  {
+    ID_Calificacion: 3,
+    Comentario: "Ese teclado es genial",
+    ID_Producto: 2,
+    Puntaje: 3
+  },
+  {
+    ID_Calificacion: 4,
+    Comentario: "Ese teclado es bueno",
+    ID_Producto: 2,
+    Puntaje: 5
+  },
+  {
+    ID_Calificacion: 5,
+    Comentario: "Ese teclado es genial",
+    ID_Producto: 3,
+    Puntaje: 3
+  },
+  {
+    ID_Calificacion: 6,
+    Comentario: "",
+    ID_Producto: 2,
+    Puntaje: 5
+  },
+  {
+    ID_Calificacion: 7,
+    Comentario: "",
+    ID_Producto:4,
+    Puntaje: 1
+  }
+];
+
 let tipoEnvio = [];
