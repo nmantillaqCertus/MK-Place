@@ -66,12 +66,14 @@ function secciones() {
     $("#idLanding").show();
     $("#idSeccion01").hide();
     $("#idSeccion02").hide();
+    $("#idSeccion03").hide();
   });
 
   $("#idSecUno").on("click", function () {
     $("#idLanding").hide();
     $("#idSeccion01").show();
     $("#idSeccion02").hide();
+    $("#idSeccion03").hide();
   });
 
   $("#idLinkCart").on("click", function () {
@@ -79,17 +81,102 @@ function secciones() {
   });
 }
 
+function fnProcesarCompra() {
+  $("#idLanding").hide();
+  $("#idSeccion01").hide();
+  $("#idSeccion02").hide();
+  $("#idNavegacion").hide();
+  $("#idSeccion03").show();
+  fnValidaOpc();
+}
+
+function fnValidaOpc() {
+  debugger;
+  var item = $("[name=deliveryOptions]:checked").val();
+
+  switch (item) {
+    case "1":
+      $("#deliveryOptions1Div").show();
+      $("#deliveryOptions2Div").hide();
+
+      $("#contentOpcRecTDA").empty();
+      for (let i = 0; i < tiendas.length; i++) {
+        $("#contentOpcRecTDA").append(
+          `<div class="form-check">
+            <input class="form-check-input" type="radio" name="radRecojoTDA" id="radRecojoTDA" value="${tiendas[i].ID_TDA}">
+            <label class="form-check-label" for="radRecojoTDA">
+              ${tiendas[i].Nombre_TDA}
+            </label>
+          </div>`
+        );
+      }
+      break;
+
+    case "2":
+      $("#deliveryOptions1Div").hide();
+      $("#deliveryOptions2Div").show();
+
+      $("#contentDPTOSel").empty();
+      $("#contentPROVSel").append(
+        `<option value = "0" selected>Elige un departamento</option>`
+      );
+      for (let i = 0; i < departamentos.length; i++) {
+        $("#contentDPTOSel").append(
+          `<option value="${departamentos[i].ID_DPTO}">${departamentos[i].Nombre}</option>`
+        );
+      }
+      $("#contentDPTO").show();
+
+      break;
+  }
+}
+
+function fnvalidaSelectedDPTO() {
+  var item = $("#contentDPTOSel option:selected").val();
+
+  $("#contentPROVSel").empty();
+  $("#contentPROVSel").append(
+    `<option value = "0" selected>Elige una provincia</option>`
+  );
+  let listProvincias = provincias.filter(x=> x.ID_DPTO == parseInt(item));
+  for (let i = 0; i < listProvincias.length; i++) {
+    $("#contentPROVSel").append(
+      `<option value="${listProvincias[i].ID_PROVINCIA}">${listProvincias[i].Nombre}</option>`
+    );
+  }
+  $("#contentPROV").show();
+}
+
+
+function fnvalidaSelectedPROV() {
+  var item = $("#contentPROVSel option:selected").val();
+
+  $("#contentDISTSel").empty();
+  $("#contentDISTSel").append(
+    `<option value = "0" selected>Elige un distrito</option>`
+  );
+  let listdistritos = distritos.filter(x=> x.ID_PROVINCIA == parseInt(item));
+  for (let i = 0; i < listdistritos.length; i++) {
+    $("#contentDISTSel").append(
+      `<option value="${listdistritos[i].ID_DISTRITO}">${listdistritos[i].Nombre}</option>`
+    );
+  }
+  $("#contentDIST").show();
+}
+
 function fnAdminCart() {
   if (productosCart.length != 0) {
     $("#idLanding").hide();
     $("#idSeccion01").hide();
     $("#idSeccion02").show();
+    $("#idSeccion03").hide();
     fnCrearSlide();
     fnPoblarTabla();
   } else {
     $("#idLanding").hide();
     $("#idSeccion01").show();
     $("#idSeccion02").hide();
+    $("#idSeccion03").hide();
   }
 }
 

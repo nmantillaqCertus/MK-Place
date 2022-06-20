@@ -11,6 +11,7 @@ let productos = [
     estado: false,
     ID_TipoEnvio: 1,
     ID_Cupon: null,
+    ID_TDA: 1,
   },
   {
     ID_Producto: 2,
@@ -24,6 +25,7 @@ let productos = [
     estado: true,
     ID_TipoEnvio: 1,
     ID_Cupon: null,
+    ID_TDA: 1,
   },
   {
     ID_Producto: 3,
@@ -37,6 +39,7 @@ let productos = [
     estado: true,
     ID_TipoEnvio: 1,
     ID_Cupon: null,
+    ID_TDA: 1,
   },
   {
     ID_Producto: 4,
@@ -50,6 +53,7 @@ let productos = [
     estado: true,
     ID_TipoEnvio: 1,
     ID_Cupon: null,
+    ID_TDA: 1,
   },
   {
     ID_Producto: 5,
@@ -63,6 +67,7 @@ let productos = [
     estado: true,
     ID_TipoEnvio: 1,
     ID_Cupon: null,
+    ID_TDA: 1,
   },
   {
     ID_Producto: 6,
@@ -76,6 +81,7 @@ let productos = [
     estado: true,
     ID_TipoEnvio: 1,
     ID_Cupon: 2,
+    ID_TDA: 1,
   },
 ];
 
@@ -107,44 +113,78 @@ let calificacion = [
     ID_Calificacion: 1,
     Comentario: "Ese teclado es genial",
     ID_Producto: 1,
-    Puntaje: 5
+    Puntaje: 5,
   },
   {
     ID_Calificacion: 2,
     Comentario: "Ese teclado es bueno",
     ID_Producto: 1,
-    Puntaje: 4
+    Puntaje: 4,
   },
   {
     ID_Calificacion: 3,
     Comentario: "Ese teclado es genial",
     ID_Producto: 2,
-    Puntaje: 3
+    Puntaje: 3,
   },
   {
     ID_Calificacion: 4,
     Comentario: "Ese teclado es bueno",
     ID_Producto: 2,
-    Puntaje: 5
+    Puntaje: 5,
   },
   {
     ID_Calificacion: 5,
     Comentario: "Ese teclado es genial",
     ID_Producto: 3,
-    Puntaje: 3
+    Puntaje: 3,
   },
   {
     ID_Calificacion: 6,
     Comentario: "",
     ID_Producto: 2,
-    Puntaje: 5
+    Puntaje: 5,
   },
   {
     ID_Calificacion: 7,
     Comentario: "",
-    ID_Producto:4,
-    Puntaje: 1
-  }
+    ID_Producto: 4,
+    Puntaje: 1,
+  },
 ];
+
+let tiendas = [
+  { ID_TDA: 1, Nombre_TDA: "CD" },
+  { ID_TDA: 2, Nombre_TDA: "Tienda 1" },
+  { ID_TDA: 3, Nombre_TDA: "Tienda 1" },
+];
+
+let departamentos = [
+  { ID_DPTO: 1, Nombre: "Cajamarca" },
+  { ID_DPTO: 2, Nombre: "Arequipa" },
+  { ID_DPTO: 3, Nombre: "Lima" },
+];
+let provincias = [
+  { ID_PROVINCIA: 1, ID_DPTO:1, Nombre: "Cajamarca" },
+  { ID_PROVINCIA: 2, ID_DPTO:2, Nombre:"Arequipa" },
+  { ID_PROVINCIA: 3, ID_DPTO:3, Nombre:"Lima" },
+  { ID_PROVINCIA: 4, ID_DPTO:3, Nombre: "Callao" },
+  { ID_PROVINCIA: 5, ID_DPTO:2, Nombre: "Camaná" }
+];
+let distritos = [
+  { ID_DISTRITO: 1, ID_PROVINCIA:1, Nombre: "Cajamarca" , Tarifa:25},
+  { ID_DISTRITO: 2, ID_PROVINCIA:2, Nombre: "Yanahuara" , Tarifa:25},
+  { ID_DISTRITO: 3, ID_PROVINCIA:2, Nombre: "Miraflores" , Tarifa:25},
+  { ID_DISTRITO: 4, ID_PROVINCIA:3, Nombre: "Chorrillos" , Tarifa:30},
+  { ID_DISTRITO: 5, ID_PROVINCIA:4, Nombre: "La Perla" , Tarifa:25},
+  { ID_DISTRITO: 6, ID_PROVINCIA:4, Nombre: "La Punta" , Tarifa:25},
+  { ID_DISTRITO: 7, ID_PROVINCIA:5, Nombre: "Camaná" , Tarifa:40},
+  { ID_DISTRITO: 8, ID_PROVINCIA:3, Nombre: "San Borja" , Tarifa:20},
+  { ID_DISTRITO: 9, ID_PROVINCIA:3, Nombre: "Jesus María" , Tarifa:15},
+  { ID_DISTRITO: 10, ID_PROVINCIA:3, Nombre: "Miraflores" , Tarifa:15},
+  
+];
+
+
 
 let tipoEnvio = [];
