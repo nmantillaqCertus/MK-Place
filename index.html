@@ -203,31 +203,57 @@
             <br>
             <br>
             <!--Recojo en Tienda-->
-            <div class="card" id="deliveryOptions1Div" style="display: block;" >
-              Recojo en Tienda
+            <div class="card" id="deliveryOptions1Div" style="display: block; margin-left: 10%; margin-right:10%" >
+              Elige una Tienda (Envío Gratis)
               <br>
               <div class="text-center" id="contentOpcRecTDA">                 
               </div>
             </div>
 
             <!--Envio a Domicilio-->
-            <div class="card" id="deliveryOptions2Div" style="display: none;">
+            <div class="card" id="deliveryOptions2Div" style="display: block; margin-left: 10%; margin-right:10%">
               Envio a Domicilio
               <br>
-              <div class="text-center" id="contentDPTO" style="display: none;"> 
+              <div class="text-center py-1" id="contentDPTO" style="display: none; margin: 0 15% 0 15%;"> 
+                <label>Departamento: </label>
                 <select class="custom-select custom-select-sm" id="contentDPTOSel" onclick="fnvalidaSelectedDPTO()">
                 </select>
               </div>
 
-              <div class="text-center" id="contentPROV" style="display: none;" onchange="fnvalidaSelectedPROV()"> 
-                <select class="custom-select custom-select-sm" id="contentPROVSel">
+              <div class="text-center py-1" id="contentPROV" style="display: none;margin: 0 15% 0 15%;" > 
+                <label>Provincia: </label>
+                <select class="custom-select custom-select-sm" id="contentPROVSel" onchange="fnvalidaSelectedPROV()">
                 </select>
               </div>
-              
-              <div class="text-center" id="contentDIST" style="display: none;">
-                <select class="custom-select custom-select-sm" id="contentDISTSel">
+
+              <div class="text-center py-1" id="contentDIST" style="display: none;margin: 0 15% 0 15%;">
+                <label>Distrito: </label>
+                <select class="custom-select custom-select-sm" id="contentDISTSel" onchange="fnBuscarMonto()">
                 </select> 
               </div>
+
+              <div class="text-center py-1" id="contentDireccion" style="display: none;margin: 0 15% 0 15%;">
+                <label for="idDireccion">Dirección: </label>
+                <input type="text" name="" id="idDireccion">                
+              </div>
+
+
+              
+              <br>
+              <br>
+              <div class="text-center py-1" style="margin: 0 15% 0 15%;">
+                <label>Fecha de Envío: </label>
+                <span id="idFechaEnvio"></span>
+                <br>
+                <br>
+                <label>Costo de Envío: </label>
+                <strong><span id="idCostoEnvio">0</span></strong>
+              </div>
+              
+            </div>
+
+            <div id="idGoPay" style="display: block; margin-left: 10%; margin-right:10%">
+              <button class="btn btn-sm btn-success" onclick="GoPay()">Ir a Pagar</button>
             </div>
 
 

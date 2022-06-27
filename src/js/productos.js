@@ -172,18 +172,20 @@ let provincias = [
   { ID_PROVINCIA: 5, ID_DPTO:2, Nombre: "Camaná" }
 ];
 let distritos = [
-  { ID_DISTRITO: 1, ID_PROVINCIA:1, Nombre: "Cajamarca" , Tarifa:25},
-  { ID_DISTRITO: 2, ID_PROVINCIA:2, Nombre: "Yanahuara" , Tarifa:25},
+  { ID_DISTRITO: 1, ID_PROVINCIA:1, Nombre: "Cajamarca" , Tarifa:22},
+  { ID_DISTRITO: 2, ID_PROVINCIA:2, Nombre: "Yanahuara" , Tarifa:23},
   { ID_DISTRITO: 3, ID_PROVINCIA:2, Nombre: "Miraflores" , Tarifa:25},
   { ID_DISTRITO: 4, ID_PROVINCIA:3, Nombre: "Chorrillos" , Tarifa:30},
   { ID_DISTRITO: 5, ID_PROVINCIA:4, Nombre: "La Perla" , Tarifa:25},
-  { ID_DISTRITO: 6, ID_PROVINCIA:4, Nombre: "La Punta" , Tarifa:25},
+  { ID_DISTRITO: 6, ID_PROVINCIA:4, Nombre: "La Punta" , Tarifa:24},
   { ID_DISTRITO: 7, ID_PROVINCIA:5, Nombre: "Camaná" , Tarifa:40},
   { ID_DISTRITO: 8, ID_PROVINCIA:3, Nombre: "San Borja" , Tarifa:20},
-  { ID_DISTRITO: 9, ID_PROVINCIA:3, Nombre: "Jesus María" , Tarifa:15},
+  { ID_DISTRITO: 9, ID_PROVINCIA:3, Nombre: "Jesus María" , Tarifa:10},
   { ID_DISTRITO: 10, ID_PROVINCIA:3, Nombre: "Miraflores" , Tarifa:15},
   
 ];
+
+let detalleCompra = [];
 
 
 
